@@ -1,0 +1,168 @@
+<HTML>
+<TITLE>Executive.h</TITLE>
+<BODY>
+<PRE>
+#pragma once
+/////////////////////////////////////////////////////////////////////////////
+// Executive.h - Fulfills Requirements of Execution                        //
+// ver 1.0                                                                 //
+// ----------------------------------------------------------------------- //
+// Language:    Visual C++, Visual Studio 2017                             //
+// Platform:    Lenovo Edge 15, Core i7, Windows 10                        //
+// Application: Project 1 - Source Code Publisher                          //
+//              CSE687 Object Oriented Design, Spring 2019                 //
+// Author:      Kashish Shah, kshah11@syr.edu                              //
+/////////////////////////////////////////////////////////////////////////////
+/*
+ * Module Operations:
+ * ==================
+ * Executive showcases the fulfillment of various requirements of the entire
+ * project of Source Code Publisher.
+ * It is also used to remove the pre-existing files from the convertedPages
+ * directory.
+ *
+ * Public Interface:
+ * =================
+ * Executive exec;
+ * exec.requirements12();
+ * exec.requirements34();
+ * exec.requirements56();
+ * exec.requirements7();
+ * exec.requirements8();
+ * exec.deleteExistingFiles();
+ *
+ * Required Files:
+ * ===============
+ * FileSystem.h, FileSystem.cpp // Directory and Path classes
+ * DirExplorerN.h
+ * Display.h
+ * Convert.h
+ * CodeUtilities.h
+ * StringUtilities.h
+ *
+ * Maintenance History:
+ * ====================
+ * ver 1.0 : 3 Feb 2019
+ * - first release
+ */
+#include&lt;iostream&gt;
+#include "../DirExplorer-Naive/DirExplorerN.h"
+#include "../Utilities/StringUtilities/StringUtilities.h"
+#include "../Utilities/CodeUtilities/CodeUtilities.h" 
+#include "../Display/Display.h"
+#include "../Convert/Convert.h"
+
+using namespace Utilities;
+using namespace FileSystem;
+
+class Executive
+{
+public:
+	Executive() {};
+	static std::string version() { return "ver 1.0"; }
+
+	// Show requirements 
+
+	void requirement12();
+	void requirement34();
+	void requirement56();
+	void requirement7();
+	void requirement8();
+
+	// Delete files already present in "convertedPages" directory
+
+	void deleteExistingFiles();
+	
+};
+//----&lt; Show requirement 1 and 2 &gt;------------------------------------------
+
+inline void Executive::requirement12()
+{
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 1: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "----------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "This Source Code Publisher uses Visual Studio 2017 and its C++ Windows Console Projects." &lt;&lt; std::endl;
+
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 2: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "The project uses standard streams libraries for all I/O and operators new and delete for ";
+	std::cout &lt;&lt; "memory management" &lt;&lt; std::endl;
+}
+
+//----&lt; Show requirement 3 and 4 &gt;-----------------------------------------
+
+inline void Executive::requirement34()
+{
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 3: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Provided Executive, Convert and Display Packages" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "The packages present in the project are: " &lt;&lt; std::endl;
+	std::vector&lt;std::string&gt; dirs = FileSystem::Directory::getDirectories("..");
+	for (auto dir : dirs) 
+	{
+		if (FileSystem::File::exists("../" + dir + "/" + dir + ".vcxproj") || FileSystem::File::exists("../" + dir + "/" + dir + ".sln"))
+			std::cout &lt;&lt; dir &lt;&lt; std::endl;
+	}
+
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 4: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Path of the files to be analysed and regular expressions to select filename are accepted ";
+	std::cout &lt;&lt; "from the command line." &lt;&lt; std::endl;
+	
+}
+//----&lt; Show requirement 5 and 6 &gt;-----------------------------------------
+
+inline void Executive::requirement56()
+{
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 5: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "If no file is found, an error message will be displayed." &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Patterns are *.h and *.cpp and regex is [Q](.*)" &lt;&lt; std::endl;
+	DirExplorerN de("../");
+	de.addPattern("*.h");
+	de.addPattern("*.cpp");
+	de.recurse();
+	de.search();
+	std::vector&lt;std::string&gt; filesToConvert = de.getFilesToProcess({ "[Q](.*)"});
+	if (filesToConvert.empty())
+		std::cout &lt;&lt; "\n No files found" &lt;&lt; std::endl;
+
+
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 6: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Each matching file is converted to a valid html file along with the file text and saved to ";
+	std::cout &lt;&lt; " folder named convertedPages." &lt;&lt; std::endl;
+}
+//----&lt; Show requirement 7 &gt;------------------------------------------------
+
+inline void Executive::requirement7()
+{
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 7: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Each converted file is displayed in the browser using the child process ";
+	std::cout &lt;&lt; "and it waits for the child process to exit before displaying the next file." &lt;&lt; std::endl;
+}
+//----&lt; Show requirement 8 &gt;------------------------------------------------
+
+inline void Executive::requirement8()
+{
+	std::cout &lt;&lt; "\n\nFullfilling Requirement 8: " &lt;&lt; std::endl;
+	std::cout &lt;&lt; "--------------------------------" &lt;&lt; std::endl;
+	std::cout &lt;&lt; "Includes an automated test that demonstrates all the requirements are satisfied." &lt;&lt; std::endl;
+}
+//----&lt; Remove files from convertedPages directory&gt;--------------------------
+/*
+   Deleting previously converted html files to that running the application
+   lead to correct output.
+*/
+
+inline void Executive::deleteExistingFiles()
+{
+	std::string dirPath = "../convertedPages";
+	std::vector&lt;std::string&gt; prevFiles = FileSystem::Directory::getFiles(dirPath);
+	for (auto files : prevFiles)
+		FileSystem::File::remove(dirPath + "/" + files);
+}
+
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,134 @@
+<HTML>
+<TITLE>Convert.h</TITLE>
+<BODY>
+<PRE>
+#pragma once
+/////////////////////////////////////////////////////////////////////////////
+// Convert.h - Convert files to HTML                                       //
+// ver 1.0                                                                 //
+// ----------------------------------------------------------------------- //
+// Language:    Visual C++, Visual Studio 2017                             //
+// Platform:    Lenovo Edge 15, Core i7, Windows 10                        //
+// Application: Project 1 - Source Code Publisher                          //
+//              CSE687 Object Oriented Design, Spring 2019                 //
+// Author:      Kashish Shah, kshah11@syr.edu                              //
+/////////////////////////////////////////////////////////////////////////////
+/*
+ * Module Operations:
+ * ==================
+ * Convert provides a class of same name which on execution converts
+ * the file/s that are extracted in DirExplorerN.h to HTML files with
+ * the same name. This class appends the html tags to the content
+ * of the code and replaces the escape sequences with the valid
+ * strings. This conversion will result into all the converted html files 
+ * getting stored in convertedPages directory which can be later used by
+ * Display package to pop-up these files in browser.
+ *
+ * Public Interface:
+ * =================
+ * Convert cvt;
+ * cvt.convertToHtml(file);
+ * convertFileContent(c)
+ *
+ * Required Files:
+ * ===============
+ * FileSystem.h, FileSystem.cpp // Directory and Path classes
+ *
+ * Maintenance History:
+ * ====================
+ * ver 1.0 : 26 Jan 2019
+ * - first release
+ */
+
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;cstdlib&gt;
+#include "../FileSystem/FileSystem.h"
+
+class Convert {
+public:
+	Convert() {};
+	
+	// does conversion of the file to .html 
+	void convertToHtml(const std::string&amp filesToConvert);
+	
+	// replaces escape sequences
+	
+	std::string convertFileContent(char&amp c);
+};
+//----&lt; convert the file to .html file &gt;---------------------
+/*
+	Converts the entire file to html file with .html extension and
+	inserting the tags for html.
+*/
+
+void Convert::convertToHtml(const std::string&amp fileToConvert)
+{
+	try {
+		std::string filename = fileToConvert;
+		std::string filename1 = FileSystem::Path::getName(fileToConvert);;
+		std::string outputname;
+
+		char c;
+		std::ifstream inStream;
+		std::ofstream outStream;
+
+		inStream.open(filename.c_str());
+		if (inStream.fail()) {
+			std::cout &lt;&lt; "I/O failure opening file." &lt;&lt; std::endl;
+			exit(1);
+		}
+
+		outputname = "../convertedPages/" + filename1 + ".html"; // Creating output file
+		outStream.open(outputname.c_str());
+
+		outStream &lt;&lt; "&lt;HTML&gt;" &lt;&lt; std::endl;
+		outStream &lt;&lt; "&lt;TITLE&gt;" &lt;&lt; filename1 &lt;&lt; "&lt;/TITLE&gt;" &lt;&lt; std::endl;
+		outStream &lt;&lt; "&lt;BODY&gt;" &lt;&lt; std::endl;
+		outStream &lt;&lt; "&lt;PRE&gt;" &lt;&lt; std::endl;
+
+		while (!inStream.eof()) {
+			inStream.get(c);  
+			outStream &lt;&lt; Convert::convertFileContent(c);
+		}
+		
+		outStream &lt;&lt; "&lt;/PRE&gt;" &lt;&lt; std::endl;
+		outStream &lt;&lt; "&lt;/BODY&gt;" &lt;&lt; std::endl &lt;&lt; "&lt;/HTML&gt;" &lt;&lt; std::endl;
+		inStream.close();
+		outStream.close();
+		std::cout &lt;&lt; "\n";
+		std::cout &lt;&lt; "Conversion of " + FileSystem::Path::getName(fileToConvert) + " successful.  Results are in file " &lt;&lt; FileSystem::Path::getFullFileSpec(outputname) &lt;&lt; std::endl;
+	}
+	catch (std::exception e) {
+		std::cout &lt;&lt; e.what();
+	}
+}
+//----&lt; replace the escape sequences with valid string &gt;-----
+/*
+	While iterating through the contents of the file, replace
+	'&lt;' with "&amplt" and '&gt;' with "&ampgt".
+*/
+
+std::string Convert::convertFileContent(char&amp c) {
+	try {
+		if (c == '&lt;')
+			return "&amplt;";
+		else if (c == '&gt;')
+			return "&ampgt;";
+		else if (c == '&amp')
+			return "&ampamp";
+		else
+		{
+			std::string s(1, c);
+			return s;
+		}
+	}
+	catch (std::exception e) {
+		std::cout &lt;&lt; e.what();
+		return "";
+	}
+}}</PRE>
+</BODY>
+</HTML>

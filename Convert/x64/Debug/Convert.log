@@ -1,0 +1,37 @@
+﻿  Convert.cpp
+d:\semester 2 syracuse\ood\oodproject1\direxplorer-naive\direxplorern.h(236): error C2065: 'Convert': undeclared identifier
+d:\semester 2 syracuse\ood\oodproject1\direxplorer-naive\direxplorern.h(236): error C2146: syntax error: missing ';' before identifier 'cvt'
+d:\semester 2 syracuse\ood\oodproject1\direxplorer-naive\direxplorern.h(236): error C2065: 'cvt': undeclared identifier
+d:\semester 2 syracuse\ood\oodproject1\direxplorer-naive\direxplorern.h(239): error C2065: 'cvt': undeclared identifier
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(21): error C3861: 'basic_streambuf': identifier not found
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(452): note: see reference to class template instantiation 'FileSystem::std::basic_stringbuf<_Elem,_Traits,_Alloc>' being compiled
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(21): error C2143: syntax error: missing ',' before '<'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(25): error C2143: syntax error: missing ';' before '<'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(25): error C2238: unexpected token(s) preceding ';'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(26): error C2143: syntax error: missing ';' before '<'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(26): error C2238: unexpected token(s) preceding ';'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(27): error C2653: '_Mystr': is not a class or namespace name
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(27): error C3646: '_Mysize_type': unknown override specifier
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(29): error C2653: 'ios_base': is not a class or namespace name
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(29): error C2061: syntax error: identifier 'openmode'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(36): error C2143: syntax error: missing ',' before '&'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(94): error C3646: 'str': unknown override specifier
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(94): error C2059: syntax error: '('
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(95): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(111): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(111): error C2143: syntax error: missing ',' before '&'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(247): error C2653: 'ios_base': is not a class or namespace name
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(247): error C2061: syntax error: identifier 'seekdir'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(322): error C2653: 'ios_base': is not a class or namespace name
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(322): error C2061: syntax error: identifier 'openmode'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(360): error C2061: syntax error: identifier '_Mysize_type'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(416): error C2061: syntax error: identifier 'pointer_traits'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(416): error C2039: 'pointer': is not a member of '`global namespace''
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(423): error C2653: 'ios_base': is not a class or namespace name
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(423): error C2061: syntax error: identifier 'openmode'
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\sstream(452): fatal error C1903: unable to recover from previous error(s); stopping compilation
+  CTIPlugin::InvokeCallback=APPCRASHCTIPlugin::InvokeCallback=APPCRASHCTIPlugin::InvokeCallback=APPCRASHCTIPlugin::InvokeCallback=APPCRASHCTIPlugin::InvokeCallback=APPCRASH

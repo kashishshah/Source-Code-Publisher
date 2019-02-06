@@ -1,0 +1,25 @@
+/////////////////////////////////////////////////////////////////////////////
+// Display.cpp - Display Code pop-up in browser                            //
+// ver 1.0                                                                 //
+// ----------------------------------------------------------------------- //
+// Language:    Visual C++, Visual Studio 2017                             //
+// Platform:    Lenovo Edge 15, Core i7, Windows 10                        //
+// Application: Project 1 - Source Code Publisher                          //
+//              CSE687 Object Oriented Design, Spring 2019                 //
+// Source:      Jim Fawcett, CST 4-187, Syracuse University                //
+//              (315) 443-3948, jfawcett@twcny.rr.com                      //
+// Author:      Kashish Shah, kshah11@syr.edu                              //
+/////////////////////////////////////////////////////////////////////////////
+
+#include "Display.h"
+
+#ifdef TEST_DISPLAY // only compile the following when defined
+
+int main()
+{
+	Display dis;
+	dis.displayFiles();
+	return  0;
+}
+
+#endif
